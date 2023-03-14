@@ -16,7 +16,7 @@
 
 
 <h1 id = 'cipher'> autumn </h2>
-<p id = 'typerwriter'> paragraph </p>
+<p id = 'typewriter'>  </p>
 <!-- 
 <p id = 'cipher'>
  Autumn
@@ -24,11 +24,14 @@
 
 <script>
 
-//typeWriter ('typewriter', 'please write an html website with javascript interactivity');
+typeWriter ('typewriter', 'please write an html website with javascript interactivity'),100;
 
-function typeWriter(elementId, text) {
-  let delay = 100;
+function typeWriter(elementId, text, delay = 100) {
   const element = document.getElementById(elementId);
+  if (!element) {
+    console.error(`Element with ID '${elementId}' not found`);
+    return;
+  }
   let i = 0;
   function type() {
     if (i < text.length) {
