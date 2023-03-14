@@ -7,3 +7,22 @@
 
 <h1> header </h2>
 <p> paragraph </p>
+
+//instead of 'yourvideo.mp4' put the name of your video file
+<video id="myVideo" src="yourvideo.mp4" onclick="playPause()">
+  </video>
+  
+  <script>
+    var video = document.getElementById("myVideo");
+  
+    function playPause() {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+        video.playbackRate = -1;
+        video.play();
+      }
+    }
+  </script>
