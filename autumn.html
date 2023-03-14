@@ -17,16 +17,17 @@
 
 <h1 id = 'cipher'> autumn </h2>
 <p id = 'typerwriter'> paragraph </p>
-
+<!-- 
 <p id = 'cipher'>
  Autumn
-</p>
+</p> -->
 
 <script>
 
-typeWriter ('typewriter', 'please write an html website with javascript interactivity');
+//typeWriter ('typewriter', 'please write an html website with javascript interactivity');
 
-function typeWriter(elementId, text, delay = 100) {
+function typeWriter(elementId, text) {
+  let delay = 100;
   const element = document.getElementById(elementId);
   let i = 0;
   function type() {
