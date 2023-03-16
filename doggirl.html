@@ -1,30 +1,82 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <title>DOGGGIRL</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td {
+        padding: 0px;
+        vertical-align: top;
+        color: white;
+        text-align: center;
+      }
+    </style>
   </head>
-  
+  <html>
 <a href="@.html"> Homepage Button Text</a>
 
 <h1> header </h2>
 <p> paragraph </p>
 
-//instead of 'first-video.mp4' put the name of your video clip
-//instead of 'second-videom.mp4' put the name of second video clip
+<body>
+  <video id="chariot" controls autoplay preload="auto" width="500">
+		<source id="video-source-1" type="video/mp4">
 
-<video id="my-video" controls width="600">
-  <source src="first-video.mp4" type="video/mp4">
-</video>
-<button onclick="toggleVideo()">Toggle Videos</button>
+    
+	</video>
 
-<script>
-  function toggleVideo() {
-    var video = document.getElementById("my-video");
-    if (video.paused) {
-      video.src = "second-video.mp4";
-      video.play();
-    } else {
-      video.src = "first-video.mp4";
-      video.play();
-    }
+
+  	<video id="priestess" controls width="500">
+		<source id="video-source-2" type="video/mp4">
+	</video>
+
+  <video id="judgement" controls width="500">
+		<source id="video-source-3" type="video/mp4">
+	</video>
+<br>
+	<table>
+		<tr>
+			<td>Column 1 text goes here.</td>
+			<td>Column 2 text goes here.</td>
+			<td>Column 3 text goes here.</td>
+		</tr>
+	</table>
+
+
+	<script>
+	function toggleVideo(videoId, sourceId, video1, video2) {
+  var video = document.getElementById(videoId);
+  var source = document.getElementById(sourceId);
+
+  function playVideo2() {
+    console.log ("play video 2");
+    source.src = video2;
+    video.load();
+    video.play();
+    video.removeEventListener('click', playVideo2);
+    video.addEventListener('click', playVideo1);
   }
-</script>
+
+  function playVideo1() {
+    console.log("play video 1");
+    source.src = video1;
+    video.load();
+    video.play();
+    video.removeEventListener('click', playVideo1);
+    video.addEventListener('click', playVideo2);
+  }
+
+  video.addEventListener('click', playVideo2);
+  video.removeAttribute('controls');
+}
+
+    
+		toggleVideo('chariot', 'video-source-1', './data/chariot.mp4', './data/rev_chrt.mp4');
+		toggleVideo('priestess', 'video-source-2', './data/priestess.mp4', './data/rever_prst.mp4');
+    toggleVideo('judgement', 'video-source-3', './data/judgement_video.mp4', './data/rev_judg.mp4');
+
+	</script>
+</body>
+</html>
