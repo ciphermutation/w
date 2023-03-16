@@ -8,21 +8,23 @@
 <h1> header </h2>
 <p> paragraph </p>
 
-//instead of 'yourvideo.mp4' put the name of your video file
-<video id="myVideo" src="./data/chariot.mp4" onclick="playPause()">
-  </video>
-  
-  <script>
-    var video = document.getElementById("myVideo");
-  
-    function playPause() {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-        video.currentTime = 0;
-        video.playbackRate = -1;
-        video.play();
-      }
+//instead of 'first-video.mp4' put the name of your video clip
+//instead of 'second-videom.mp4' put the name of second video clip
+
+<video id="my-video" controls width="600">
+  <source src="first-video.mp4" type="video/mp4">
+</video>
+<button onclick="toggleVideo()">Toggle Videos</button>
+
+<script>
+  function toggleVideo() {
+    var video = document.getElementById("my-video");
+    if (video.paused) {
+      video.src = "second-video.mp4";
+      video.play();
+    } else {
+      video.src = "first-video.mp4";
+      video.play();
     }
-  </script>
+  }
+</script>

@@ -24,7 +24,8 @@
 
 <script>
 
-typeWriter ('typewriter', 'please write an html website with javascript interactivity'),100;
+typeWriter ('typewriter', 'please write an html website with javascript interactivity');
+
 
 function typeWriter(elementId, text, delay = 100) {
   const element = document.getElementById(elementId);
@@ -60,10 +61,12 @@ document.addEventListener('mousemove', (event) => {
   if (target === cipher || cipher.contains(target)) {
     // Get all the text nodes within the cipher element
     const textNodes = getTextNodes(cipher);
+   
 
     // Loop through each text node and scramble its text
     textNodes.forEach(node => {
       const text = node.textContent;
+     
       const scrambledText = scrambleText(text);
       node.textContent = scrambledText;
     });
@@ -87,11 +90,15 @@ function getTextNodes(node) {
 // Helper function to scramble the text
 function scrambleText(text) {
   const letters = text.split('');
+ 
   for (let i = letters.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [letters[i], letters[j]] = [letters[j], letters[i]];
   }
-  return letters.join('');
+ 
+    return letters.join('');
+
+  
 }
 
 
